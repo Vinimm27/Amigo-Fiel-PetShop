@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Pet Shop Amigo Fiel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #ff914d;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            background-color: #333;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            color: #ff914d;
+        }
+        section {
+            padding: 20px;
+        }
+        .servicos, .produtos {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .card {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            width: 30%;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+        button {
+            background-color: #ff914d;
+            border: none;
+            padding: 10px;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #e07b39;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>🐾 Pet Shop Amigo Fiel</h1>
+    <p>Cuidando do seu melhor amigo!</p>
+</header>
+
+<nav>
+    <a href="#home">Home</a>
+    <a href="#servicos">Serviços</a>
+    <a href="#produtos">Produtos</a>
+    <a href="#contato">Contato</a>
+</nav>
+
+<section id="home">
+    <h2>Bem-vindo!</h2>
+    <p>Oferecemos os melhores cuidados para seu pet com carinho e qualidade.</p>
+</section>
+
+<section id="servicos">
+    <h2>Serviços</h2>
+    <div class="servicos">
+        <div class="card">
+            <h3>Banho e Tosa</h3>
+            <p>Deixe seu pet limpinho e cheiroso.</p>
+        </div>
+        <div class="card">
+            <h3>Consulta Veterinária</h3>
+            <p>Atendimento especializado para seu animal.</p>
+        </div>
+        <div class="card">
+            <h3>Hotel Pet</h3>
+            <p>Hospedagem confortável enquanto você viaja.</p>
+        </div>
+    </div>
+</section>
+
+<section id="produtos">
+    <h2>Produtos</h2>
+    <div class="produtos">
+        <div class="card">
+            <h3>Ração Premium</h3>
+            <p>Alimentação saudável para seu pet.</p>
+            <button>Comprar</button>
+        </div>
+        <div class="card">
+            <h3>Brinquedos</h3>
+            <p>Diversão garantida!</p>
+            <button>Comprar</button>
+        </div>
+        <div class="card">
+            <h3>Acessórios</h3>
+            <p>Coleiras, roupas e muito mais.</p>
+            <button>Comprar</button>
+        </div>
+    </div>
+</section>
+
+<section id="contato">
+    <h2>Contato</h2>
+    <p>Email: contato@petshop.com</p>
+    <p>Telefone: (16) 99999-9999</p>
+</section>
+
+<footer>
+    <p>&copy; 2026 Pet Shop Amigo Fiel - Todos os direitos reservados</p>
+</footer>
+
+</body>
+</html>

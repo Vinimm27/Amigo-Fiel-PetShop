@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Pet Shop Amigo Fiel</title>
+
+<style>
+body {
+    font-family: Arial;
+    margin: 0;
+    background: #f5f5f5;
+}
+
+header {
+    background: #ff914d;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+nav {
+    background: #333;
+    padding: 10px;
+    text-align: center;
+}
+
+nav button {
+    margin: 5px;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+section {
+    display: none;
+    padding: 20px;
+}
+
+.active {
+    display: block;
+}
+
+.card {
+    background: white;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 10px;
+    display: inline-block;
+    width: 200px;
+}
+
+button {
+    background: #ff914d;
+    color: white;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+}
+
+input {
+    display: block;
+    margin: 10px 0;
+    padding: 8px;
+    width: 200px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>🐾 Pet Shop Amigo Fiel</h1>
+</header>
+
+<nav>
+<button onclick="mostrar('login')">Login</button>
+<button onclick="mostrar('produtos')">Produtos</button>
+<button onclick="mostrar('carrinho')">Carrinho</button>
+<button onclick="mostrar('agendamento')">Agendamento</button>
+</nav>
+
+<!-- LOGIN -->
+<section id="login" class="active">
+<h2>Login</h2>
+<input type="text" id="usuario" placeholder="Usuário">
+<input type="password" id="senha" placeholder="Senha">
+<button onclick="login()">Entrar</button>
+<p id="msgLogin"></p>
+</section>
+
+<!-- PRODUTOS -->
+<section id="produtos">
+<h2>Produtos</h2>
+
+<div class="card">
+<h3>Ração</h3>
+<p>R$ 50</p>
+<button onclick="addCarrinho('Ração',50)">Comprar</button>
+</div>
+
+<div class="card">
+<h3>Brinquedo</h3>
+<p>R$ 30</p>
+<button onclick="addCarrinho('Brinquedo',30)">Comprar</button>
+</div>
+
+<div class="card">
+<h3>Coleira</h3>
+<p>R$ 20</p>
+<button onclick="addCarrinho('Coleira',20)">Comprar</button>
+</div>
+
+</section>
+
+<!-- CARRINHO -->
+<section id="carrinho">
+<h2>Carrinho</h2>
+<ul id="listaCarrinho"></ul>
+<p>Total: R$ <span id="total">0</span></p>
+</section>
+
+<!-- AGENDAMENTO -->
+<section id="agendamento">
+<h2>Agendar Serviço</h2>
+
+<input type="text" id="nomePet" placeholder="Nome do Pet">
+<input type="date" id="data">
+<select id="servico">
+<option>Banho</option>
+<option>Tosa</option>
+<option>Veterinário</option>
+</select>
+
+<button onclick="agendar()">Agendar</button>
+
+<p id="msgAgendamento"></p>
+</section>
+
+<script>
+let carrinho = [];
+let total = 0;
+
+function mostrar(secao) {
+    document.querySelectorAll("section").forEach(s => s.classList.remove("active"));
+    document.getElementById(secao).classList.add("active");
+}
+
+function login() {
+    let user = document.getElementById("usuario").value;
+    let senha = document.getElementById("senha").value;
+
+    if(user === "admin" && senha === "123") {
+        document.getElementById("msgLogin").innerText = "Login realizado!";
+    } else {
+        document.getElementById("msgLogin").innerText = "Erro no login!";
+    }
+}
+
+function addCarrinho(nome, preco) {
+    carrinho.push({nome, preco});
+    total += preco;
+
+    atualizarCarrinho();
+}
+
+function atualizarCarrinho() {
+    let lista = document.getElementById("listaCarrinho");
+    lista.innerHTML = "";
+
+    carrinho.forEach(item => {
+        let li = document.createElement("li");
+        li.innerText = item.nome + " - R$ " + item.preco;
+        lista.appendChild(li);
+    });
+
+    document.getElementById("total").innerText = total;
+}
+
+function agendar() {
+    let pet = document.getElementById("nomePet").value;
+    let data = document.getElementById("data").value;
+    let servico = document.getElementById("servico").value;
+
+    if(pet && data) {
+        document.getElementById("msgAgendamento").innerText =
+        "Agendamento realizado para " + pet + " (" + servico + ")";
+    } else {
+        document.getElementById("msgAgendamento").innerText =
+        "Preencha todos os campos!";
+    }
+}
+</script>
+
+</body>
+</html>
